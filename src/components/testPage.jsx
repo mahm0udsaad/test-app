@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Question from './question.jsx';
 import { useTestContext } from '../context.jsx';
+import {Link} from 'react-router-dom'
 
 const TestPage = () => {
   const [total , setTotal ] = useState(0)
   const [displayTotal , isDisplayTotal ] = useState(false)
   const { questions ,currentQuestionIndex,setCurrentQuestionIndex } = useTestContext();
-  
- 
+   
+
   const nextQuestion = () => {
       if (currentQuestionIndex < questions.length - 1) {
-          console.log(currentQuestionIndex);
           setCurrentQuestionIndex(currentQuestionIndex + 1);
-          localStorage.setItem('index', JSON.stringify(currentQuestionIndex));
         }else{
           isDisplayTotal(true) 
-          setCurrentQuestionIndex(0)
         }
     };
 
@@ -24,7 +22,11 @@ const TestPage = () => {
       {questions ? (
               <div className="max-w-md mx-auto">
               {displayTotal ? (
-                  <h1>{total} / {questions.length}</h1>
+                  <div className='flex flex-col h-full justify-around'>
+
+                   <Link to={'/'} className='bg-black text-white text-center text-lg p-5 rounded mb-5'>Exit</Link>
+                  <h1 className='text-4xl mt-5'>Total : {total} / {questions.length}</h1>
+                  </div>
               ) : ( 
                   <Question
                   question={questions[currentQuestionIndex]}

@@ -7,22 +7,15 @@ export const TestProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-    useEffect(()=>{
-      console.log(currentQuestionIndex);
+   useEffect(()=>{
       if(test){
         axios.post('http://localhost:3000/test',{data:test})
         .then(res =>{
-          const storedQuestions = JSON.stringify(res.data.questions);
-          localStorage.setItem('questions', storedQuestions)
+          setCurrentQuestionIndex(0)
+          setQuestions(res.data.questions)
         })
         .catch(err => console.error(err))
       }
-    const getQuestions=()=>{
-      const storedQuestions = localStorage.getItem('questions')
-      const parsedQuestions = JSON.parse(storedQuestions)
-      setQuestions(parsedQuestions)
-    }
-    getQuestions()
     },[test])
 
   return (

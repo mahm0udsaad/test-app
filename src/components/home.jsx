@@ -18,7 +18,7 @@ const Home = () => {
       }}
       className="bg-inherit h-screen flex flex-col justify-center items-center"
     >
-      <h1 className="text-4xl mb-5 font-semibold ">Welcome to the Test App</h1>
+      <h1 className="text-4xl mb-5 text-white font-semibold ">Welcome to the Test App</h1>
       <p className="text-lg mb-8 text-gray-600">Get ready to test your knowledge!</p>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
        
