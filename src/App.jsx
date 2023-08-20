@@ -1,29 +1,16 @@
 import './App.css'
 import TestPage from './components/testPage'
-
+import { BrowserRouter as Router, Route, Routes , Link } from 'react-router-dom';
+import Home from './components/home.jsx'
 function App() {
-  const questions = [
-    {
-      text: 'What is the capital of France?',
-      options: ['Berlin', 'London', 'Paris', 'Rome'],
-      correctOption: 'Paris',
-    },
-    {
-      text: 'Which planet is known as the "Red Planet"?',
-      options: ['Venus', 'Mars', 'Jupiter', 'Saturn'],
-      correctOption: 'Mars',
-    },
-    {
-      text: 'Which famous scientist developed the theory of general relativity?',
-      options: ['Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Stephen Hawking'],
-      correctOption: 'Albert Einstein',
-    },
-  ];
-  
-
   return (
     <>
-      <TestPage questions={questions}/>
+      <Router>
+        <Routes>
+          <Route path='/test' element={<TestPage />}/>
+          <Route exact path='/' element={<Home />} />
+        </Routes>
+      </Router>
     </>
   )
 }
