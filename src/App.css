@@ -1,0 +1,14 @@
+/* Mobile Phones (portrait) */
+@media only screen and (max-width: 767px) {
+  /* Your styles for mobile phones in portrait orientation */
+}
+/* Mobile Landscape */
+@media only screen and (min-width: 480px) and (max-width: 767px) and (orientation: landscape) {
+  /* Your styles for mobile phones in landscape orientation */
+}
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Your styles for tablets */
+}
+
+
