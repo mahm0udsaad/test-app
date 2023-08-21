@@ -15,8 +15,6 @@ const Question = ({ question, onNextQuestion, total, setTotal }) => {
       setTotal(total + 1);
     }
   };
-
-
   const renderOptions = () => {
     return question.options.map((option, index) => (
       <AnimatePresence>

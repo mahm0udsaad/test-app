@@ -18,7 +18,7 @@ const TestPage = () => {
     };
 
   return (
-    <div className="bg-orange-50 min-h-screen flex items-center justify-center">
+    <div className={displayTotal ? "final min-h-screen flex items-center justify-center":"bg-orange-50 min-h-screen flex items-center justify-center"}>
       {questions ? (
               <div className="max-w-md mx-auto">
               {displayTotal ? (

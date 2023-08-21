@@ -8,7 +8,7 @@ export const TestProvider = ({ children }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
    useEffect(()=>{
       if(test){
-        axios.post('http://localhost:3000/test',{data:test})
+        axios.post('https://naughty-moth-tunic.cyclic.cloud/test',{data:test})
         .then(res =>{
           console.log(res.data);
           setCurrentQuestionIndex(0)
