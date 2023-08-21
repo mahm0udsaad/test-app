@@ -38,7 +38,7 @@ const Question = ({ question, onNextQuestion, total, setTotal }) => {
       {question ? (
         
       <>
-            <div className="lg:w-full md:w-full mx-5 flex justify-center absolute w-11/12  top-2 md:top-10 lg:top-5">
+            <div className="lg:w-full md:w-full flex justify-center absolute w-11/12  top-2 md:top-10 lg:top-5">
             <CountdownCircleTimer
                 isPlaying
                 duration={25}
@@ -57,7 +57,7 @@ const Question = ({ question, onNextQuestion, total, setTotal }) => {
           <motion.div
            initial={{ y:100 }}
            animate={{ y:0 }}
-           className="text-2xl lg:text-5xl mb-5 lg:mb-10">{question.question}</motion.div>
+           className="text-2xl md:text-4xl lg:text-5xl mb-5 lg:mb-10">{question.question}</motion.div>
           </div>
           <div>{renderOptions()}</div>
         </div>
