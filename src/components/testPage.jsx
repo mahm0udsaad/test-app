@@ -15,17 +15,19 @@ const TestPage = () => {
         }else{
           isDisplayTotal(true) 
         }
+        console.log(currentQuestionIndex);
+        localStorage.setItem('index',JSON.stringify(currentQuestionIndex))
     };
 
   return (
-    <div className={displayTotal ? "final min-h-screen flex items-center justify-center":"bg-orange-50 min-h-screen flex items-center justify-center"}>
+    <div className={displayTotal ? "final min-h-screen flex items-center justify-center":"bg-orange-50 min-h-screen flex flex-col items-center justify-center overflow-hidden"}>
       {questions ? (
               <div className="max-w-md mx-auto">
               {displayTotal ? (
                   <div className='flex flex-col h-full justify-around'>
 
-                   <motion.div initial={{ scale:0 }} animate={{scale:1}} className='bg-black text-white text-center text-lg p-5 rounded mb-5'>
-                   <Link to={'/'} className=''>Exit</Link>
+                   <motion.div initial={{ scale:0 }} animate={{scale:1}} className='flex bg-black text-white text-center text-lg p-5 rounded mb-5'>
+                   <Link to={'/'} className='w-full h-full'>Exit</Link>
                    </motion.div>
                     <div className="overflow-hidden">
                     <div 
@@ -34,6 +36,7 @@ const TestPage = () => {
                     </div>
                   </div>
               ) : ( 
+                <>
                   <Question
                   key={currentQuestionIndex}
                   question={questions[currentQuestionIndex]}
@@ -41,6 +44,7 @@ const TestPage = () => {
                   setTotal={setTotal}
                   total={total}
                   />
+                </>
               )}
         </div>
       ):(
