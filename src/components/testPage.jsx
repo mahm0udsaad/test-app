@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Question from './question.jsx';
 import { useTestContext } from '../context.jsx';
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 const TestPage = () => {
   const [total , setTotal ] = useState(0)
   const [displayTotal , isDisplayTotal ] = useState(false)
@@ -24,11 +24,18 @@ const TestPage = () => {
               {displayTotal ? (
                   <div className='flex flex-col h-full justify-around'>
 
-                   <Link to={'/'} className='bg-black text-white text-center text-lg p-5 rounded mb-5'>Exit</Link>
-                  <h1 className='text-4xl mt-5'>Total : {total} / {questions.length}</h1>
+                   <motion.div initial={{ scale:0 }} animate={{scale:1}} className='bg-black text-white text-center text-lg p-5 rounded mb-5'>
+                   <Link to={'/'} className=''>Exit</Link>
+                   </motion.div>
+                    <div className="overflow-hidden">
+                    <div 
+                   className='text-4xl mt-5 flex items-center'>Total :  <motion.h1 className='' initial={{ y:150 }} animate={{ y:0 }}> {total} </motion.h1> / {questions.length}
+                  </div>
+                    </div>
                   </div>
               ) : ( 
                   <Question
+                  key={currentQuestionIndex}
                   question={questions[currentQuestionIndex]}
                   onNextQuestion={nextQuestion}
                   setTotal={setTotal}
