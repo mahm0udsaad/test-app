@@ -20,16 +20,16 @@ const TestPage = () => {
     };
 
   return (
-    <div className={displayTotal ? "final min-h-screen flex items-center justify-center":"bg-orange-50 min-h-screen flex flex-col items-center justify-center overflow-hidden"}>
+    <div className={displayTotal ? "final min-h-screen w-full flex items-center justify-center":"bg-orange-50 min-h-screen flex flex-col items-center justify-center overflow-hidden"}>
       {questions ? (
-              <div className="max-w-md mx-auto w-11/12 lg:w-2/1 md:w-6/12 ">
+              <div className="flex justify-center max-w-md mx-auto w-11/12 lg:w-2/1 md:w-6/12 ">
               {displayTotal ? (
                   <div className='flex flex-col h-full justify-around'>
 
                    <motion.div initial={{ scale:0 }} animate={{scale:1}} className='flex bg-black text-white text-center text-lg p-5 rounded mb-5'>
                    <Link to={'/'} className='w-full h-full'>Exit</Link>
                    </motion.div>
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden mx-auto">
                     <div 
                    className='text-4xl mt-5 flex items-center'>Total :  <motion.h1 className='' initial={{ y:150 }} animate={{ y:0 }}> {total} </motion.h1> / {questions.length}
                   </div>
